@@ -12,7 +12,7 @@ from kitsune.lib.sumo_locales import LOCALES
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
-STAGE = False
+STAGE = True
 
 LOG_LEVEL = logging.INFO
 SYSLOG_TAG = 'http_sumo_app'
@@ -225,10 +225,10 @@ SIMPLE_WIKI_LANGUAGES = [
 # Languages that should show up in language switcher.
 LANGUAGE_CHOICES = tuple(
     [(lang, LOCALES[lang].native) for lang in SUMO_LANGUAGES
-     if lang != 'xx'])
+     if lang != 'xxx'])
 LANGUAGE_CHOICES_ENGLISH = tuple(
     [(lang, LOCALES[lang].english) for lang in SUMO_LANGUAGES
-     if lang != 'xx'])
+     if lang != 'xxx'])
 LANGUAGES_DICT = dict([(i.lower(), LOCALES[i].native) for i in SUMO_LANGUAGES])
 LANGUAGES = LANGUAGES_DICT.items()
 
@@ -309,7 +309,7 @@ ES_PLUGIN_ANALYZERS = [
     'polish'
 ]
 
-ES_USE_PLUGINS = False
+ES_USE_PLUGINS = True
 
 TEXT_DOMAIN = 'messages'
 
@@ -349,7 +349,7 @@ LOCALE_PATHS = (
 )
 
 # Use the real robots.txt?
-ENGAGE_ROBOTS = False
+ENGAGE_ROBOTS = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
@@ -688,7 +688,7 @@ NUNJUCKS_PRECOMPILE_BIN = 'nunjucks-precompile'
 SESSION_COOKIE_AGE = 4 * 7 * 24 * 60 * 60  # 4 weeks
 SESSION_COOKIE_SECURE = True
 SESSION_COOKIE_HTTPONLY = True
-SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 SESSION_EXISTS_COOKIE = 'sumo_session'
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
@@ -711,7 +711,7 @@ ES_WRITE_INDEXES = ES_INDEXES
 # them bump into one another.
 ES_INDEX_PREFIX = 'sumo'
 # Keep indexes up to date as objects are made/deleted.
-ES_LIVE_INDEXING = False
+ES_LIVE_INDEXING = True
 # Timeout for querying requests
 ES_TIMEOUT = 5
 
@@ -769,7 +769,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 # Read-only mode setup.
-READ_ONLY = False
+READ_ONLY = True
 
 
 # Turn on read-only mode in settings_local.py by putting this line
@@ -810,7 +810,7 @@ CELERY_SEND_TASK_ERROR_EMAILS = True
 CELERYD_LOG_LEVEL = logging.INFO
 CELERYD_CONCURRENCY = 4
 CELERY_EAGER_PROPAGATES_EXCEPTIONS = True  # Explode loudly during tests.
-CELERYD_HIJACK_ROOT_LOGGER = False
+CELERYD_HIJACK_ROOT_LOGGER = True
 
 # Wiki rebuild settings
 WIKI_REBUILD_TOKEN = 'sumo:wiki:full-rebuild'
@@ -858,8 +858,8 @@ CC_WORD_BLACKLIST = [
 ]
 
 BITLY_API_URL = 'http://api.bitly.com/v3/shorten?callback=?'
-BITLY_LOGIN = None
-BITLY_API_KEY = None
+BITLY_LOGIN = True
+BITLY_API_KEY = True
 
 TWITTER_COOKIE_SECURE = True
 TWITTER_CONSUMER_KEY = ''
@@ -883,7 +883,7 @@ GA_START_DATE = date(2012, 11, 10)
 MOBILE_COOKIE = 'msumo'
 
 # Key to access /services/version. Set to None to disallow.
-VERSION_CHECK_TOKEN = None
+VERSION_CHECK_TOKEN = True
 
 REDIS_BACKENDS = {
     #'default': 'redis://localhost:6379?socket_timeout=0.5&db=0',
@@ -895,7 +895,7 @@ HELPFULVOTES_UNHELPFUL_KEY = 'helpfulvotes_topunhelpful'
 
 LAST_SEARCH_COOKIE = 'last_search'
 
-OPTIPNG_PATH = None
+OPTIPNG_PATH = True
 
 # Zendesk info. Fill in the prefix, email and password in settings_local.py.
 ZENDESK_URL = 'https://appsmarket.zendesk.com'
@@ -904,7 +904,7 @@ ZENDESK_USER_EMAIL = ''
 ZENDESK_USER_PASSWORD = ''
 
 # Tasty Pie
-API_LIMIT_PER_PAGE = 0
+API_LIMIT_PER_PAGE = 5
 
 # Change the default for XFrameOptionsMiddleware.
 X_FRAME_OPTIONS = 'DENY'
@@ -931,7 +931,7 @@ REST_FRAMEWORK = {
 # Django-axes settings.
 AXES_LOGIN_FAILURE_LIMIT = 10
 AXES_LOCK_OUT_AT_FAILURE = True
-AXES_USE_USER_AGENT = False
+AXES_USE_USER_AGENT = True
 AXES_COOLOFF_TIME = 1  # hour
 AXES_BEHIND_REVERSE_PROXY = True
 AXES_REVERSE_PROXY_HEADER = 'HTTP_X_CLUSTER_CLIENT_IP'
